@@ -1,0 +1,736 @@
+/* ==================================
+   Caho風 ミルキーピンクテーマ
+================================== */
+
+:root{
+
+    --bg:#FFFDFC;
+
+    --card:#FFFFFF;
+
+    --pink:#F4C9D8;
+
+    --pink-dark:#EAB8CB;
+
+    --pink-soft:#F8E7EE;
+
+    --text:#6D5A63;
+
+    --border:#F1D8E2;
+
+    --danger:#E5A4B8;
+
+    --shadow:
+    0 4px 12px
+    rgba(
+        0,
+        0,
+        0,
+        0.05
+    );
+}
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+}
+
+body{
+
+    background:
+    var(--bg);
+
+    color:
+    var(--text);
+
+    font-family:
+
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+
+    min-height:100vh;
+
+    padding-bottom:
+    90px;
+}
+
+/* ==================================
+   ヘッダー
+================================== */
+
+.header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    background:
+    rgba(
+        255,
+        255,
+        255,
+        0.9
+    );
+
+    backdrop-filter:
+    blur(10px);
+
+    padding:
+
+    18px
+    20px;
+
+    text-align:center;
+
+    border-bottom:
+
+    1px solid
+    var(--border);
+}
+
+.header h1{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:
+    var(--text);
+}
+
+/* ==================================
+   メイン
+================================== */
+
+.content{
+
+    padding:
+
+    16px;
+
+    max-width:
+    600px;
+
+    margin:
+    0 auto;
+}
+
+/* ==================================
+   サマリー
+================================== */
+
+.summary-card{
+
+    background:
+    var(--card);
+
+    border-radius:
+    24px;
+
+    padding:
+    24px;
+
+    text-align:center;
+
+    margin-bottom:
+    16px;
+
+    box-shadow:
+    var(--shadow);
+}
+
+.summary-label{
+
+    font-size:
+    14px;
+
+    color:
+    #9A8790;
+}
+
+.summary-total{
+
+    margin-top:
+    8px;
+
+    font-size:
+    34px;
+
+    font-weight:
+    bold;
+}
+
+/* ==================================
+   TOP3
+================================== */
+
+.top3-section{
+
+    margin-bottom:
+    16px;
+}
+
+.top3-section h2{
+
+    font-size:
+    18px;
+
+    margin-bottom:
+    10px;
+}
+
+.top3-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        3,
+        1fr
+    );
+
+    gap:
+    10px;
+}
+
+.top3-item{
+
+    background:
+    white;
+
+    border-radius:
+    18px;
+
+    padding:
+    14px;
+
+    text-align:center;
+
+    box-shadow:
+    var(--shadow);
+}
+
+.top3-rank{
+
+    font-size:
+    28px;
+}
+
+.top3-name{
+
+    margin-top:
+    8px;
+
+    font-weight:
+    bold;
+}
+
+.top3-sales{
+
+    margin-top:
+    4px;
+
+    font-size:
+    13px;
+}
+
+/* ==================================
+   カード
+================================== */
+
+.card{
+
+    background:
+    white;
+
+    border-radius:
+    24px;
+
+    padding:
+    18px;
+
+    margin-bottom:
+    16px;
+
+    box-shadow:
+    var(--shadow);
+}
+
+.card h2{
+
+    font-size:
+    18px;
+
+    margin-bottom:
+    12px;
+}
+
+.card-header{
+
+    display:flex;
+
+    justify-content:
+    space-between;
+
+    align-items:center;
+
+    margin-bottom:
+    10px;
+}
+
+/* ==================================
+   入力
+================================== */
+
+label{
+
+    display:block;
+
+    margin-top:
+    10px;
+
+    margin-bottom:
+    6px;
+
+    font-size:
+    14px;
+}
+
+input{
+
+    width:100%;
+
+    padding:
+    12px;
+
+    border:
+
+    1px solid
+    var(--border);
+
+    border-radius:
+    14px;
+
+    background:
+    #FFFDFE;
+
+    font-size:
+    16px;
+}
+
+input[type="date"],
+input[type="month"]{
+
+    max-width:
+    100%;
+}
+/* ==================================
+   ボタン
+================================== */
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:0.2s;
+}
+
+button:active{
+
+    transform:
+    scale(0.98);
+}
+
+.primary-btn{
+
+    width:100%;
+
+    margin-top:
+    18px;
+
+    padding:
+    14px;
+
+    border-radius:
+    16px;
+
+    background:
+    var(--pink);
+
+    color:
+    white;
+
+    font-weight:
+    bold;
+}
+
+.primary-btn:hover{
+
+    background:
+    var(--pink-dark);
+}
+
+.clear-btn{
+
+    background:
+    var(--danger);
+
+    color:white;
+
+    padding:
+    8px 14px;
+
+    border-radius:
+    12px;
+}
+
+.small-btn{
+
+    padding:
+    8px 12px;
+
+    border-radius:
+    10px;
+
+    color:white;
+}
+
+.edit-btn{
+
+    background:
+    var(--pink-dark);
+}
+
+.delete-btn{
+
+    background:
+    var(--danger);
+}
+
+/* ==================================
+   履歴
+================================== */
+
+.history-item{
+
+    display:flex;
+
+    justify-content:
+    space-between;
+
+    align-items:center;
+
+    padding:
+    14px 0;
+
+    border-bottom:
+    1px solid
+    var(--border);
+}
+
+.history-name{
+
+    font-weight:bold;
+
+    margin-bottom:
+    4px;
+}
+
+.history-date{
+
+    font-size:
+    12px;
+
+    color:
+    #9A8790;
+}
+
+.history-actions{
+
+    display:flex;
+
+    gap:
+    6px;
+}
+
+/* ==================================
+   テーブル
+================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:
+    collapse;
+
+    margin-top:
+    12px;
+}
+
+th{
+
+    background:
+    var(--pink-soft);
+
+    padding:
+    12px;
+
+    font-size:
+    14px;
+}
+
+td{
+
+    padding:
+    12px;
+
+    text-align:center;
+
+    border-bottom:
+    1px solid
+    var(--border);
+}
+
+/* ==================================
+   SVG グラフ
+================================== */
+
+svg{
+
+    width:100%;
+
+    max-width:
+    320px;
+
+    display:block;
+
+    margin:
+    20px auto;
+}
+
+.legend-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:
+    10px;
+
+    margin-bottom:
+    8px;
+}
+
+.legend-color{
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+}
+
+/* ==================================
+   モーダル
+================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(
+        0,
+        0,
+        0,
+        0.35
+    );
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:1000;
+}
+
+.modal.show{
+
+    display:flex;
+}
+
+.modal-content{
+
+    width:90%;
+
+    max-width:420px;
+
+    background:white;
+
+    border-radius:
+    24px;
+
+    padding:
+    20px;
+}
+
+.modal-content h2{
+
+    margin-bottom:
+    12px;
+}
+
+.modal-content input{
+
+    margin-bottom:
+    10px;
+}
+
+.modal-buttons{
+
+    display:flex;
+
+    gap:
+    10px;
+
+    margin-top:
+    10px;
+}
+
+.cancel-btn{
+
+    flex:1;
+
+    padding:
+    12px;
+
+    border-radius:
+    14px;
+
+    background:
+    #E5E5E5;
+}
+
+.save-btn{
+
+    flex:1;
+
+    padding:
+    12px;
+
+    border-radius:
+    14px;
+
+    background:
+    var(--pink);
+
+    color:white;
+}
+
+/* ==================================
+   ページ切替
+================================== */
+
+.page{
+
+    display:none;
+}
+
+.active-page{
+
+    display:block;
+}
+
+/* ==================================
+   フッタータブ
+================================== */
+
+.footer{
+
+    position:fixed;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    height:72px;
+
+    background:white;
+
+    border-top:
+    1px solid
+    var(--border);
+
+    display:flex;
+
+    z-index:100;
+}
+
+.tab{
+
+    flex:1;
+
+    background:none;
+
+    color:
+    #9A8790;
+
+    font-size:
+    14px;
+}
+
+.active-tab{
+
+    color:
+    var(--pink-dark);
+
+    font-weight:bold;
+}
+
+/* ==================================
+   iPhone対応
+================================== */
+
+@media(
+max-width:480px
+){
+
+    .top3-grid{
+
+        gap:8px;
+    }
+
+    .top3-item{
+
+        padding:10px;
+    }
+
+    .summary-total{
+
+        font-size:
+        28px;
+    }
+
+    th,
+    td{
+
+        font-size:
+        13px;
+    }
+}

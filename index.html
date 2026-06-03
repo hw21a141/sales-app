@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="theme-color" content="#F4C9D8">
+
+<title>Staff Sales</title>
+
+<link rel="manifest" href="manifest.json">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <h1>Staff Sales</h1>
+
+</header>
+
+<main class="content">
+
+    <!-- 売上サマリー -->
+
+    <section class="summary-card">
+
+        <div class="summary-label">
+
+            今月の売上
+
+        </div>
+
+        <div
+            id="monthlyTotal"
+            class="summary-total">
+
+            ¥0
+
+        </div>
+
+    </section>
+
+    <!-- TOP3 -->
+
+    <section class="top3-section">
+
+        <h2>ランキング TOP3</h2>
+
+        <div
+            id="top3Container"
+            class="top3-grid">
+
+        </div>
+
+    </section>
+
+    <!-- 入力ページ -->
+
+    <section
+        id="page-input"
+        class="page active-page">
+
+        <div class="card">
+
+            <h2>売上登録</h2>
+
+            <label>
+                スタッフ名
+            </label>
+
+            <input
+                id="staffName"
+                type="text"
+                placeholder="スタッフ名">
+
+            <label>
+                売上金額
+            </label>
+
+            <input
+                id="salesAmount"
+                type="number"
+                placeholder="売上金額">
+
+            <label>
+                登録日
+            </label>
+
+            <input
+                id="saleDate"
+                type="date">
+
+            <button
+                class="primary-btn"
+                onclick="addSale()">
+
+                登録する
+
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <h2>登録履歴</h2>
+
+                <button
+                    class="clear-btn"
+                    onclick="clearAllData()">
+
+                    全削除
+
+                </button>
+
+            </div>
+
+            <div id="historyList"></div>
+
+        </div>
+
+    </section>
+
+    <!-- 日別ランキング -->
+
+    <section
+        id="page-daily"
+        class="page">
+
+        <div class="card">
+
+            <h2>日別ランキング</h2>
+
+            <input
+                id="dailyDateFilter"
+                type="date"
+                onchange="renderDailyRanking()">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>順位</th>
+                    <th>名前</th>
+                    <th>売上</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody
+                    id="dailyRankingBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- 月別ランキング -->
+
+    <section
+        id="page-monthly"
+        class="page">
+
+        <div class="card">
+
+            <h2>月別ランキング</h2>
+
+            <input
+                id="monthlyFilter"
+                type="month"
+                onchange="renderMonthlyRanking()">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>順位</th>
+                    <th>名前</th>
+                    <th>売上</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody
+                    id="monthlyRankingBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- グラフ -->
+
+    <section
+        id="page-graph"
+        class="page">
+
+        <div class="card">
+
+            <h2>日別グラフ</h2>
+
+            <input
+                id="dailyGraphDate"
+                type="date"
+                onchange="renderDailyGraph()">
+
+            <svg
+                id="dailyPieChart"
+                viewBox="0 0 300 300">
+
+            </svg>
+
+            <div
+                id="dailyLegend">
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>月別グラフ</h2>
+
+            <input
+                id="monthlyGraphDate"
+                type="month"
+                onchange="renderMonthlyGraph()">
+
+            <svg
+                id="monthlyPieChart"
+                viewBox="0 0 300 300">
+
+            </svg>
+
+            <div
+                id="monthlyLegend">
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- 編集モーダル -->
+
+<div
+    id="editModal"
+    class="modal">
+
+    <div class="modal-content">
+
+        <h2>売上編集</h2>
+
+        <input
+            id="editStaff"
+            type="text">
+
+        <input
+            id="editAmount"
+            type="number">
+
+        <input
+            id="editDate"
+            type="date">
+
+        <div class="modal-buttons">
+
+            <button
+                class="cancel-btn"
+                onclick="closeModal()">
+
+                キャンセル
+
+            </button>
+
+            <button
+                class="save-btn"
+                onclick="saveEdit()">
+
+                保存
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="footer">
+
+    <button
+        id="tab-input"
+        class="tab active-tab"
+        onclick="showPage('input')">
+
+        入力
+
+    </button>
+
+    <button
+        id="tab-daily"
+        class="tab"
+        onclick="showPage('daily')">
+
+        日別
+
+    </button>
+
+    <button
+        id="tab-monthly"
+        class="tab"
+        onclick="showPage('monthly')">
+
+        月別
+
+    </button>
+
+    <button
+        id="tab-graph"
+        class="tab"
+        onclick="showPage('graph')">
+
+        グラフ
+
+    </button>
+
+</footer>
+
+<script src="app.js"></script>
+
+<script>
+
+if("serviceWorker" in navigator){
+
+    navigator.serviceWorker.register("sw.js");
+
+}
+
+</script>
+
+</body>
+</html>
