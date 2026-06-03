@@ -304,7 +304,7 @@ label{
 
 input{
 
-    width:90%;
+    width:100%;
 
     padding:
     12px;
@@ -328,7 +328,7 @@ input[type="date"],
 input[type="month"]{
 
     max-width:
-    90%;
+    95%;
 }
 /* ==================================
    ボタン
